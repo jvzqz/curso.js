@@ -44,14 +44,14 @@ console.log("Monto final: ", prestamo);
 function simular_prestamo (monto, cuotas) {
 
     if( monto > 0 && cuotas == 3){
-        return monto * 1.1;
+        return Math.ceil (monto * 1.1);
     }
 
     else if ( monto > 0 && cuotas == 6){
-        return monto * 1.3;
+        return Math.ceil (monto * 1.3);
     }
     else if ( monto > 0 && cuotas == 12){
-        return monto * 1.7;
+        return Math.ceil (monto * 1.7);
     }
 }
 
