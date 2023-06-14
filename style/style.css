@@ -1,0 +1,45 @@
+*{
+    margin:0;
+    bottom: 0;
+}
+
+.header {
+    display: flex;
+    padding: 30px;
+    background-color: #00AEEF;
+}
+
+.main {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    gap: 50px;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    background-color: #00AEEF;
+}
+
+.formulario {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mensaje {
+    font-size: 10px;
+    color: red;
+}
+
+.inicio {
+    display: flex;
+    
+    margin-top: 50px;
+    gap: 20px;
+}

@@ -4,9 +4,80 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
     <title>Simulador de préstamos</title>
 </head>
 <body>
+    <header class="header">
+        <img src="./imagen/imagen.jpg" alt="logo">
+    </header>
+    
+    <main class="main">
+        <h1> Simulador de préstamos del Banco Ciudad </h1>
+
+        <div>
+           <h2>Calculá tu préstamo en simples pasos.</h2>
+
+           <div class="inicio">
+            <p> ¿Es usted cliente del banco? </p>
+            <button id="boton_si"> Sí </button>
+            <button id="boton_no"> No </button>
+            <p id="mensaje_boton_no" class="mensaje"></p>
+          </div>
+
+        </div>
+  
+        <div>
+            <form id="formulariocliente" class="formulario">             
+              <div>
+                <label for="nombre"> Indicá tu nombre: </label>
+                <input type="text" name="nombre" id="nombre"></imput>
+                <p id="mensaje_nombre" class="mensaje"></p>
+              </div>
+    
+              <div>
+                <label for="cuil"> Indicá tu CUIL: </label>
+                <input type="text" name="cuil" id="cuil"></imput>
+                <p id="mensaje_cuil" class="mensaje"></p>
+              </div>
+    
+              <div>
+                <label for="mensaje"> Indicá tu mail: </label>
+                <textarea type="text" name="mail" id="mail"></textarea>
+                <p id="mensaje_mail" class="mensaje"></p>
+              </div>
+    
+              <button class="button"> ENVIAR </button> 
+              
+              <p></p>
+            </form>
+        </div>
+
+        <div>
+            <form id="formularioprestamo" class="formulario">             
+              <div>
+                <label for="monto"> Ingrese el monto del préstamo: </label>
+                <input type="text" name="monto" id="monto"></imput>
+                <p id="mensaje_monto" class="mensaje"></p>
+              </div>
+    
+              <div>
+                <label for="cuotas"> Ingrese la cantidad de cuotas 3, 6 o 12: </label>
+                <input type="text" name="cuotas" id="cuotas"></imput>
+                <p id="mensaje_cuotas" class="mensaje"></p>
+              </div>
+    
+              <button id="boton_calcular" class="button"> CALCULAR </button>
+              
+              <p id="mensaje_prestamo"></p>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p> © 2023 Banco Ciudad, todos los derechos reservados.</p>
+    </footer>
+    
     <script src="file.js"></script>
 </body>
 </html>
