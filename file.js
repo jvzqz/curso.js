@@ -56,48 +56,33 @@ formulariocliente.addEventListener("submit", (e) => {
     localStorage.setItem("lista_cliente", array_json);
 });
 
-const formularioprestamo =  document.getElementById ("formularioprestamo");
+const formularioprestamo = document.getElementById("formularioprestamo");
 formularioprestamo.addEventListener("submit", (e) => {
-
-	e.preventDefault();
-
+    e.preventDefault();
+    
     const monto = document.getElementById("monto").value;
-
-    if (monto.trim() === ''){
-        const mensaje_monto = document.getElementById ("mensaje_monto");
-        mensaje_monto.textContent = "El campo monto está vació."
-    };
-
-    const cuotas = document.getElementById("cuotas").value;
-
-    if (monto.trim() === ''){
-        const mensaje_monto = document.getElementById ("mensaje_monto");
-        mensaje_monto.textContent = "El valor no corresponde."
-    };
-
-    if (cuotas !== [3,6,8]){
-        const mensaje_cuotas = document.getElementById ("cuotas");
-        mensaje_cuotas.textContent = "El valor no corresponde."
+    
+    if (monto.trim() === "") {
+        const mensaje_monto = document.getElementById("mensaje_monto");
+        mensaje_monto.textContent = "El campo monto está vació.";
+    }
+    
+    const cuotas = parseInt(document.getElementById("cuotas").value);
+    
+    if (monto.trim() === "") {
+        const mensaje_monto = document.getElementById("mensaje_monto");
+        mensaje_monto.textContent = "El valor no corresponde.";
+    }
+    
+    if (cuotas !== 3 && cuotas !== 6 && cuotas !== 12) {
+        const mensaje_cuotas = document.getElementById("mensaje_cuotas");
+        mensaje_cuotas.textContent = "El valor no corresponde.";
     } else {
-        let prestamo = simular_prestamo (monto, cuotas);
+        const mensaje_prestamo = document.getElementById("mensaje_prestamo");
+        let prestamo = simular_prestamo(parseFloat(monto), cuotas);
         mensaje_prestamo.textContent = "El monto total del devolución es " + prestamo;
     }
-
-    /*if (cuotas !== 6){
-        const mensaje_cuotas = document.getElementById ("cuotas");
-        mensaje_cuotas.textContent = "El valor no corresponde."
-    } else {
-        let calcular_prestamo = Math.ceil (monto * 1.6)
-
-    };
-
-    if (cuotas !== 12){
-        const mensaje_cuotas = document.getElementById ("cuotas");
-        mensaje_cuotas.textContent = "El valor no corresponde."
-    } else {
-        let calcular_prestamo = Math.ceil (monto * 1.8)
-    };*/
-});
+    });
 
 
 function simular_prestamo (monto, cuotas) {
@@ -113,8 +98,3 @@ function simular_prestamo (monto, cuotas) {
         return Math.ceil (monto * 1.7);
     }
 }
-
-
-
-
-
