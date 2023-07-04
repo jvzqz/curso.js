@@ -58,10 +58,12 @@ formulariocliente.addEventListener("submit", (e) => {
 
 
 let prestamo_cliente = [];
+let prestamo;
+let cuotafinal;
 
 class prestamocliente {
     constructor (nombre, prestamo, cuotafinal){
-        this.nombre = nombre;
+        this.nombre = nombre.value;
         this.prestamo = prestamo;
         this.cuotafinal = cuotafinal;
     }
@@ -103,11 +105,11 @@ formularioprestamo.addEventListener("submit", (e) => {
         mensaje_final.textContent = "El monto total de cada cuota es " + cuotafinal;
     }
 
-    let prestamo1 = new prestamocliente (nombre, prestamo, cuotafinal);
-    prestamo1.get_prestamo()
-    prestamo_cliente.push(prestamo1);
-    let array_json = JSON.stringify (prestamo_cliente);
-    localStorage.setItem("prestamo_cliente", array_json);
+    let prestamo1 = new prestamocliente(nombre, prestamo, cuotafinal);
+	prestamo1.get_prestamo();
+	prestamo_cliente.push(prestamo1);
+	let array_json = JSON.stringify(prestamo_cliente);
+	localStorage.setItem("prestamo_cliente", array_json);
 });
 
 
