@@ -22,11 +22,27 @@
             <p> ¿Es usted cliente del banco? </p>
             <button id="boton_si"> Sí </button>
             <button id="boton_no"> No </button>
+            <p id="mensaje_boton_si" class="mensaje"></p>
             <p id="mensaje_boton_no" class="mensaje"></p>
           </div>
-
         </div>
-  
+
+        <h2>Inicio de sesión</h2>
+        <form id="inicio">
+          <div class="formGroup">
+            <label for="nombre">Nombre</label>
+            <input class="input" type="text" id="nombre" name="nombre" />
+          </div>
+          <div>
+            <label for="password">Contraseña</label>
+            <input class="input" type="text" id="password" name="password" />
+          </div>
+          <div class="formGroup flex">
+            <button class="button" type="submit">Iniciar sesión</button>
+          </div>
+        </form>
+        <p class="mensajes hide" id="mensajes"></p>
+
         <div>
             <form id="formulariocliente" class="formulario">             
               <div>
@@ -79,6 +95,7 @@
         <p> © 2023 Banco Ciudad, todos los derechos reservados.</p>
     </footer>
     
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./js/file.js"></script>
 </body>
 </html>

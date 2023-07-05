@@ -6,6 +6,47 @@ boton_no.addEventListener('click', function() {
     mensaje_boton_no.textContent ="Para poder pedir el préstamo, es necesario ser cliente del banco. Pedí aseroramiento a través de nuestro WhatsApp de Lun a Vier de 10:00hs a 20:00hs."
 });
 
+const boton_si = document.getElementById("boton_si");
+
+boton_si.addEventListener('click', function() {
+
+    const mensaje_boton_si = document.getElementById("mensaje_boton_si");
+    mensaje_boton_si.textContent ="Para poder pedir el préstamo, inicia sesión:"
+});
+
+
+const inicioFormulario = document.getElementById("inicio");
+
+const mostrarMensaje = (title, text, type) => {
+	Swal.fire(title, text, type);
+};
+
+inicioFormulario.addEventListener("submit", (e) => {
+
+	e.preventDefault();
+
+	const nombre = document.getElementById("nombre").value;
+	const pass = document.getElementById("password").value;
+	
+	fetch("./usuarios.json")
+		.then((response) => response.json())
+		.then((users) => {
+			const user = users.find((user) => user.nombre === nombre);
+
+			if (user) {
+				if (pass === user.password) {
+					mostrarMensaje(`¡Buen día, ${user.nombre}!`, "Redireccionando...", "success");
+					setTimeout(() => {
+						location.href = "./index.html";
+					}, 1500);
+				} else {
+					mostrarMensaje("Error al iniciar sesión", "Contraseña incorrecta.", "error");
+				}
+			} else {
+				mostrarMensaje("Error al iniciar sesión", "Nombre incorrecto.", "error");
+			}
+		});
+});
 
 let lista_cliente = [];
 
@@ -98,10 +139,10 @@ formularioprestamo.addEventListener("submit", (e) => {
         mensaje_cuotas.textContent = "El valor no corresponde.";
     } else {
         const mensaje_prestamo = document.getElementById("mensaje_prestamo");
-        let prestamo = simular_prestamo(parseFloat(monto), cuotas);
+        prestamo = simular_prestamo(parseFloat(monto), cuotas);
         mensaje_prestamo.textContent = "El monto total del devolución es " + prestamo;
         const mensaje_final = document.getElementById("mensaje_final");
-        let cuotafinal = calcular_cuota(parseFloat(monto), cuotas);
+        cuotafinal = calcular_cuota(parseFloat(monto), cuotas);
         mensaje_final.textContent = "El monto total de cada cuota es " + cuotafinal;
     }
 
