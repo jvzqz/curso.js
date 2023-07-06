@@ -13,38 +13,29 @@
     </header>
     
     <main class="main">
-        <h1> Simulador de préstamos del Banco Ciudad </h1>
+        <h1 class="titulo"> Simulador de préstamos del Banco Ciudad </h1>
 
-        <div>
-           <h2>Calculá tu préstamo en simples pasos.</h2>
-
-           <div class="inicio">
-            <p> ¿Es usted cliente del banco? </p>
-            <button id="boton_si"> Sí </button>
-            <button id="boton_no"> No </button>
-            <p id="mensaje_boton_si" class="mensaje"></p>
-            <p id="mensaje_boton_no" class="mensaje"></p>
-          </div>
+        <div class="div_formulario">
+           <h2 class="subtitulo">Inicio de sesión</h2>
+           <form id="inicio" class="formulario">
+             <div>
+               <label for="usuario">Usuario</label>
+               <input class="input" type="text" id="usuario" name="usuario" />
+             </div>
+             <div>
+               <label for="password">Contraseña</label>
+               <input class="input" type="text" id="password" name="password" />
+             </div>
+             <div class="formGroup flex">
+               <button class="button" type="submit">Iniciar sesión</button>
+             </div>
+          </form>
+          <p class="mensajes hide" id="mensajes"></p>
         </div>
 
-        <h2>Inicio de sesión</h2>
-        <form id="inicio">
-          <div class="formGroup">
-            <label for="nombre">Nombre</label>
-            <input class="input" type="text" id="nombre" name="nombre" />
-          </div>
-          <div>
-            <label for="password">Contraseña</label>
-            <input class="input" type="text" id="password" name="password" />
-          </div>
-          <div class="formGroup flex">
-            <button class="button" type="submit">Iniciar sesión</button>
-          </div>
-        </form>
-        <p class="mensajes hide" id="mensajes"></p>
-
-        <div>
-            <form id="formulariocliente" class="formulario">             
+        <div class="div_formulario">
+           <h2 class="subtitulo">Datos del cliente</h2>
+           <form id="formulariocliente" class="formulario">             
               <div>
                 <label for="nombre"> Indicá tu nombre: </label>
                 <input type="text" name="nombre" id="nombre"></imput>
@@ -63,31 +54,32 @@
                 <p id="mensaje_mail" class="mensaje"></p>
               </div>
     
-              <button class="button"> ENVIAR </button> 
-              
-              <p></p>
+              <button class="button"> Enviar </button> 
             </form>
         </div>
 
-        <div>
-            <form id="formularioprestamo" class="formulario">             
-              <div>
-                <label for="monto"> Ingrese el monto del préstamo: </label>
-                <input type="text" name="monto" id="monto"></imput>
-                <p id="mensaje_monto" class="mensaje"></p>
-              </div>
+        <div class="div_formulario">
+          <h2 class="subtitulo">Elegí el monto de tu préstamo</h2>
+          <form id="formularioprestamo" class="formulario">             
+            <div>
+              <label for="monto"> Ingrese el monto del préstamo: </label>
+              <input type="text" name="monto" id="monto"></imput>
+              <p id="mensaje_monto" class="mensaje"></p>
+            </div>
     
-              <div>
-                <label for="cuotas"> Ingrese la cantidad de cuotas 3, 6 o 12: </label>
-                <input type="text" name="cuotas" id="cuotas"></imput>
-                <p id="mensaje_cuotas" class="mensaje"></p>
-              </div>
+            <div>
+              <label for="cuotas"> Ingrese la cantidad de cuotas 3, 6 o 12: </label>
+              <input type="text" name="cuotas" id="cuotas"></imput>
+              <p id="mensaje_cuotas" class="mensaje"></p>
+            </div>
     
-              <button id="boton_calcular" class="button"> CALCULAR </button>
+            <button id="boton_calcular" class="button"> Calcular </button>
 
-              <p id="mensaje_prestamo"></p>
-              <p id="mensaje_final"></p>
-            </form>
+            <div class="mensaje_final">
+               <p id="mensaje_prestamo"></p>
+               <p id="mensaje_final"></p>
+            </div>
+          </form>
         </div>
     </main>
 

@@ -1,20 +1,3 @@
-const boton_no = document.getElementById("boton_no");
-
-boton_no.addEventListener('click', function() {
-
-    const mensaje_boton_no = document.getElementById("mensaje_boton_no");
-    mensaje_boton_no.textContent ="Para poder pedir el préstamo, es necesario ser cliente del banco. Pedí aseroramiento a través de nuestro WhatsApp de Lun a Vier de 10:00hs a 20:00hs."
-});
-
-const boton_si = document.getElementById("boton_si");
-
-boton_si.addEventListener('click', function() {
-
-    const mensaje_boton_si = document.getElementById("mensaje_boton_si");
-    mensaje_boton_si.textContent ="Para poder pedir el préstamo, inicia sesión:"
-});
-
-
 const inicioFormulario = document.getElementById("inicio");
 
 const mostrarMensaje = (title, text, type) => {
@@ -25,17 +8,17 @@ inicioFormulario.addEventListener("submit", (e) => {
 
 	e.preventDefault();
 
-	const nombre = document.getElementById("nombre").value;
+	const usuario = document.getElementById("usuario").value;
 	const pass = document.getElementById("password").value;
 	
 	fetch("./usuarios.json")
 		.then((response) => response.json())
 		.then((users) => {
-			const user = users.find((user) => user.nombre === nombre);
+			const user = users.find((user) => user.usuario === usuario);
 
 			if (user) {
 				if (pass === user.password) {
-					mostrarMensaje(`¡Buen día, ${user.nombre}!`, "Redireccionando...", "success");
+					mostrarMensaje(`¡Buen día, ${user.usuario}!`, "Redireccionando...", "success");
 					setTimeout(() => {
 						location.href = "./index.html";
 					}, 1500);
